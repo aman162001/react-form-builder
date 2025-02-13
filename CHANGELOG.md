@@ -1,0 +1,19 @@
+# 1.0.0 (2025-02-13)
+
+
+### Bug Fixes
+
+* change file type ([860479a](https://github.com/aman162001/react-form-builder/commit/860479ac746c7f14a6a307b487fd1a08f115c601))
+* package.json ([cb8fdd9](https://github.com/aman162001/react-form-builder/commit/cb8fdd9e8d90ffee19414b3e08bb1a174315b67d))
+* update node version ([9b73df2](https://github.com/aman162001/react-form-builder/commit/9b73df2790e84f93cdc48888551b71d11a534c70))
+
+
+### Features
+
+* add form renderer ([d4c2c8c](https://github.com/aman162001/react-form-builder/commit/d4c2c8c0a1bcbd06da82152ab4ae1ba07eb5f3af))
+* trigger workflow ([67f1348](https://github.com/aman162001/react-form-builder/commit/67f1348c26b334d54080fb31ea9f7cac192c4f2d))
+* trigger workflow ([e973d3e](https://github.com/aman162001/react-form-builder/commit/e973d3e527125f43ad4221917e796c47ac4ae798))
+* trigger workflow ([cf3f13f](https://github.com/aman162001/react-form-builder/commit/cf3f13fdfba0c9922783e7555a7a0cf2f08ca786))
+* update pipline ([b3d9d70](https://github.com/aman162001/react-form-builder/commit/b3d9d7051104bad578c70914c26e2fd2ada9be6a))
+* update pipline ([c338d50](https://github.com/aman162001/react-form-builder/commit/c338d5035f995c444ab99cbfc1cbd29f770d7fa7))
+* update pipline ([2427ea7](https://github.com/aman162001/react-form-builder/commit/2427ea7c1a24057c2137233f47d77f4e59374ae5))
