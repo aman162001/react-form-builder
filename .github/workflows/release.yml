@@ -7,17 +7,21 @@ on:
 
 jobs:
   release:
-    runs-on: node16
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Run Release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
