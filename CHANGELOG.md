@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/aman162001/react-form-builder/compare/v1.0.1...v1.1.0) (2025-02-13)
+
+
+### Features
+
+* update styling ([c763a37](https://github.com/aman162001/react-form-builder/commit/c763a37b2203ace6933f86e22d290c4f70db77b6))
+
 ## [1.0.1](https://github.com/aman162001/react-form-builder/compare/v1.0.0...v1.0.1) (2025-02-13)
 
 
