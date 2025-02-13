@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/aman162001/react-form-builder/compare/v1.0.0...v1.0.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* release pipline ([9e82180](https://github.com/aman162001/react-form-builder/commit/9e821801826c6ed0155b2b19bb63fee8d89eacd7))
+
 # 1.0.0 (2025-02-13)
 
 
