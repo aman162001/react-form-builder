@@ -6,7 +6,11 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": ["dist"],
-  "scripts": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aman162001/react-form-builder"
+  },
+    "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
