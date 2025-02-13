@@ -22,7 +22,12 @@ interface OptionsProps extends BaseProps {
   uuid?: string;
 }
 
-const ShortAnswer: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const ShortAnswer: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <input
       className="form-control"
@@ -31,14 +36,20 @@ const ShortAnswer: React.FC<BaseProps> = ({ handleChange, isBuilder, value, requ
       type="text"
       placeholder="Short answer"
       value={value || ""}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => 
-        handleChange({ answer: e.target.value })}
+      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+        handleChange({ answer: e.target.value })
+      }
       readOnly={false}
     />
   </div>
 );
 
-const Email: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const Email: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <input
       className="form-control"
@@ -47,14 +58,20 @@ const Email: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }
       type="email"
       placeholder="Email"
       value={value || ""}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => 
-        handleChange({ answer: e.target.value })}
+      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+        handleChange({ answer: e.target.value })
+      }
       readOnly={false}
     />
   </div>
 );
 
-const Number: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const Number: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <input
       className="form-control"
@@ -63,14 +80,20 @@ const Number: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required 
       type="number"
       placeholder="Number"
       value={value || ""}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => 
-        handleChange({ answer: e.target.value })}
+      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+        handleChange({ answer: e.target.value })
+      }
       readOnly={false}
     />
   </div>
 );
 
-const LongAnswer: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const LongAnswer: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <textarea
       className="form-control"
@@ -79,8 +102,9 @@ const LongAnswer: React.FC<BaseProps> = ({ handleChange, isBuilder, value, requi
       rows={3}
       placeholder="Long answer"
       value={value || ""}
-      onChange={(e: ChangeEvent<HTMLTextAreaElement>) => 
-        handleChange({ answer: e.target.value })}
+      onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+        handleChange({ answer: e.target.value })
+      }
       readOnly={false}
     />
   </div>
@@ -142,8 +166,7 @@ const MultipleChoice: React.FC<OptionsProps> = ({
                   <button
                     className="btn btn-danger btn-sm"
                     onClick={() => onRemoveOption?.(index)}
-                    disabled={options.length <= 1}
-                  >
+                    disabled={options.length <= 1}>
                     ✕
                   </button>
                 </td>
@@ -151,7 +174,12 @@ const MultipleChoice: React.FC<OptionsProps> = ({
             ))}
           </tbody>
         </table>
-        <button className="btn btn-primary btn-sm" onClick={onAddOption}>
+        <button
+          className="btn btn-primary btn-sm"
+          onClick={(e) => {
+            e.preventDefault();
+            onAddOption?.();
+          }}>
           Add Option
         </button>
       </div>
@@ -175,8 +203,7 @@ const MultipleChoice: React.FC<OptionsProps> = ({
             <label
               className="form-check-label"
               style={{ cursor: "pointer" }}
-              htmlFor={`radio-${option.value}`}
-            >
+              htmlFor={`radio-${option.value}`}>
               {option.value}
             </label>
           </div>
@@ -242,8 +269,7 @@ const Checkbox: React.FC<OptionsProps> = ({
                   <button
                     className="btn btn-danger btn-sm"
                     onClick={() => onRemoveOption?.(index)}
-                    disabled={options.length <= 1}
-                  >
+                    disabled={options.length <= 1}>
                     ✕
                   </button>
                 </td>
@@ -278,8 +304,7 @@ const Checkbox: React.FC<OptionsProps> = ({
           <label
             className="form-check-label"
             style={{ cursor: "pointer" }}
-            htmlFor={`check-${option.value + "-" + uuid}`}
-          >
+            htmlFor={`check-${option.value + "-" + uuid}`}>
             {option.value}
           </label>
         </div>
@@ -343,8 +368,7 @@ const Dropdown: React.FC<OptionsProps> = ({
                   <button
                     className="btn btn-danger btn-sm"
                     onClick={() => onRemoveOption?.(index)}
-                    disabled={options.length <= 1}
-                  >
+                    disabled={options.length <= 1}>
                     ✕
                   </button>
                 </td>
@@ -366,8 +390,7 @@ const Dropdown: React.FC<OptionsProps> = ({
         disabled={isBuilder}
         required={required}
         value={value || ""}
-        onChange={(e) => handleChange({ answer: e.target.value })}
-      >
+        onChange={(e) => handleChange({ answer: e.target.value })}>
         <option value="">Select an option</option>
         {options?.map((option, index) => (
           <option key={index} value={option.value}>
@@ -379,7 +402,12 @@ const Dropdown: React.FC<OptionsProps> = ({
   );
 };
 
-const DateInput: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const DateInput: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <input
       className="form-control"
@@ -392,7 +420,12 @@ const DateInput: React.FC<BaseProps> = ({ handleChange, isBuilder, value, requir
   </div>
 );
 
-const TimeInput: React.FC<BaseProps> = ({ handleChange, isBuilder, value, required }) => (
+const TimeInput: React.FC<BaseProps> = ({
+  handleChange,
+  isBuilder,
+  value,
+  required,
+}) => (
   <div className="mb-3">
     <input
       className="form-control"
@@ -475,8 +508,7 @@ const Range: React.FC<RangeProps> = ({
               key={num}
               style={{ cursor: "pointer", listStyle: "none" }}
               onClick={() => handleChange({ answer: num })}
-              className="p-0 m-0"
-            >
+              className="p-0 m-0">
               {num}
             </li>
           ))}
@@ -529,5 +561,5 @@ export const FormElements: Array<{
   {
     type: "Range",
     component: Range,
-  }
-]
+  },
+];
