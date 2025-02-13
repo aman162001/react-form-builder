@@ -1,26 +1,5 @@
 import React, { ChangeEvent } from "react";
-
-interface BaseProps {
-  handleChange: (data: { answer: any }) => void;
-  isBuilder: boolean;
-  value: any;
-  required?: boolean;
-}
-
-interface OptionType {
-  value: string;
-  isCorrect?: boolean;
-}
-
-interface OptionsProps extends BaseProps {
-  options?: OptionType[];
-  onOptionChange?: (index: number, option: any) => void;
-  onAddOption?: () => void;
-  onRemoveOption?: (index: number) => void;
-  onMoveOptionUp?: (index: number) => void;
-  onMoveOptionDown?: (index: number) => void;
-  uuid?: string;
-}
+import {BaseProps, OptionsProps} from "./types"
 
 const ShortAnswer: React.FC<BaseProps> = ({
   handleChange,
@@ -518,7 +497,7 @@ const Range: React.FC<RangeProps> = ({
   );
 };
 
-export const FormElements: Array<{
+export const defaultFormElements: Array<{
   type: string;
   component: React.FC<any>;
 }> = [

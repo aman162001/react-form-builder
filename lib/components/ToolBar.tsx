@@ -1,5 +1,5 @@
 import React from "react";
-import { FormElements } from "./FormElements";
+import { defaultFormElements } from "./FormElements";
 
 interface FormELement {
   type: string;
@@ -20,7 +20,7 @@ const ToolBar: React.FC<ToolBarProps> = ({ handleAdd }) => {
     <div className="card h-100">
       <div className="card-header fw-bold">Form Field</div>
       <div className="card-body d-flex flex-column gap-2">
-        {FormElements.map((item, index) => (
+        {defaultFormElements.map((item, index) => (
           <div
             className="card"
             draggable={true}
