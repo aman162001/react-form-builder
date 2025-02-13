@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/aman162001/react-form-builder/compare/v1.1.1...v1.1.2) (2025-02-13)
+
+
+### Bug Fixes
+
+* update privacy policy ([615df06](https://github.com/aman162001/react-form-builder/commit/615df06a2d6ecbddccd6eb0733bd294d1b3d077c))
+
 ## [1.1.1](https://github.com/aman162001/react-form-builder/compare/v1.1.0...v1.1.1) (2025-02-13)
 
 
