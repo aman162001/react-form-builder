@@ -16,15 +16,15 @@ A flexible and customizable drag-and-drop form builder component for React appli
 ## Installation
 
 ```bash
-npm install react-dynamic-form-builder
+npm install assist-form-builder
 # or
-yarn add react-dynamic-form-builder
+yarn add assist-form-builder
 ```
 
 ## Quick Start
 
 ```jsx
-import { FormBuilder, FormRenderer } from 'react-dynamic-form-builder';
+import { FormBuilder, FormRenderer } from 'assist-form-builder';
 
 function App() {
   const handleSubmit = (fields, info) => {
@@ -131,7 +131,7 @@ function MyFormBuilder() {
 ### Form Renderer with Custom Styling
 
 ```jsx
-import { FormRenderer } from 'react-dynamic-form-builder';
+import { FormRenderer } from 'assist-form-builder';
 
 function MyFormRenderer({ formSchema }) {
   return (
