@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/aman162001/react-form-builder/compare/v1.1.4...v1.1.5) (2025-02-14)
+
+
+### Bug Fixes
+
+* package config ([c7d270c](https://github.com/aman162001/react-form-builder/commit/c7d270c96911ef556a70824b669c6b0bc5e62f21))
+
 ## [1.1.4](https://github.com/aman162001/react-form-builder/compare/v1.1.3...v1.1.4) (2025-02-13)
 
 
