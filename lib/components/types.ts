@@ -138,4 +138,5 @@ export interface FormRendererProps {
   formOptions?: FormOptions;
   submitBtnOptions?: SubmitBtnOptions;
   onSubmit: OnSubmit;
+  errorMessage?: string;
 }

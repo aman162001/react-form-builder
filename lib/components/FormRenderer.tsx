@@ -7,6 +7,7 @@ const FormRenderer: React.FC<FormRendererProps> = ({
   formOptions,
   submitBtnOptions,
   onSubmit,
+  errorMessage = "Please provide a valid schema"
 }) => {
   const [answers, setAnswers] = useState<Answers>({});
   const handleChange = (question: string, value: any, uuid: string) => {
@@ -24,7 +25,7 @@ const FormRenderer: React.FC<FormRendererProps> = ({
 
   return (
     ((!formSchema || (formSchema).length === 0) && (
-      <p className="text-danger">Please provide a valid schema</p>
+      <p className="text-danger">{errorMessage}</p>
     )) || (
       <form onSubmit={handleSubmit} {...formOptions}>
         {formSchema.map(
