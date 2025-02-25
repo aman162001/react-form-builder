@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Files just for testing purpose
+/src/main.tsx
+App.tsx
