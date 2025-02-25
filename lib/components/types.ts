@@ -102,3 +102,40 @@ export interface OptionsProps extends BaseProps {
 export interface FormBuilderRef {
     submit: () => Promise<void>;
 }
+
+export interface Answer {
+  question: string;
+  answer?: string | string[];
+  date?: string;
+  time?: string;
+}
+
+export interface Answers {
+  [key: string]: Answer;
+}
+
+export interface FormSchemaItem {
+  uuid: string;
+  question: string;
+  answer: string | string[];
+  required: boolean;
+  options: Array<string | { value: string; isCorrect?: boolean }>;
+  type: string;
+}
+
+export interface FormOptions {
+    [key: string]: any;
+}
+
+export interface SubmitBtnOptions {
+    [key: string]: any;
+}
+
+export type OnSubmit = (answers: Answers) => void;
+
+export interface FormRendererProps {
+  formSchema: FormSchemaItem[];
+  formOptions?: FormOptions;
+  submitBtnOptions?: SubmitBtnOptions;
+  onSubmit: OnSubmit;
+}
