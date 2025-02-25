@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/aman162001/react-form-builder/compare/v1.1.5...v1.2.0) (2025-02-25)
+
+
+### Features
+
+* add custom error message in formrenderer ([5ff7302](https://github.com/aman162001/react-form-builder/commit/5ff7302543b20c9bc3adf3460fa2f85b4527784a))
+* add TypeScript types, improve schema validation, and enhance form/button options ([35a4065](https://github.com/aman162001/react-form-builder/commit/35a40654f89bd2014667618676575ef000cfd775))
+
 ## [1.1.5](https://github.com/aman162001/react-form-builder/compare/v1.1.4...v1.1.5) (2025-02-14)
 
 
