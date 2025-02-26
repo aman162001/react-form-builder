@@ -6,6 +6,7 @@ const ShortAnswer: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <input
@@ -18,7 +19,7 @@ const ShortAnswer: React.FC<BaseProps> = ({
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
         handleChange({ answer: e.target.value })
       }
-      readOnly={false}
+      readOnly={readOnly}
     />
   </div>
 );
@@ -28,6 +29,7 @@ const Email: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <input
@@ -40,7 +42,7 @@ const Email: React.FC<BaseProps> = ({
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
         handleChange({ answer: e.target.value })
       }
-      readOnly={false}
+      readOnly={readOnly}
     />
   </div>
 );
@@ -50,6 +52,7 @@ const Number: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <input
@@ -62,7 +65,7 @@ const Number: React.FC<BaseProps> = ({
       onChange={(e: ChangeEvent<HTMLInputElement>) =>
         handleChange({ answer: e.target.value })
       }
-      readOnly={false}
+      readOnly={readOnly}
     />
   </div>
 );
@@ -72,6 +75,7 @@ const LongAnswer: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <textarea
@@ -84,7 +88,7 @@ const LongAnswer: React.FC<BaseProps> = ({
       onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
         handleChange({ answer: e.target.value })
       }
-      readOnly={false}
+      readOnly={readOnly}
     />
   </div>
 );
@@ -99,6 +103,7 @@ const MultipleChoice: React.FC<OptionsProps> = ({
   value,
   required,
   uuid,
+  readOnly
 }) => {
   if (isBuilder) {
     return (
@@ -141,6 +146,7 @@ const MultipleChoice: React.FC<OptionsProps> = ({
                         value: e.target.value,
                       })
                     }
+                    
                   />
                   <button
                     className="btn btn-danger btn-sm"
@@ -178,6 +184,7 @@ const MultipleChoice: React.FC<OptionsProps> = ({
               required={required}
               checked={value === option.value}
               onChange={() => handleChange({ answer: option.value })}
+              disabled={readOnly}
             />
             <label
               className="form-check-label"
@@ -202,6 +209,7 @@ const Checkbox: React.FC<OptionsProps> = ({
   value = [],
   required,
   uuid,
+  readOnly
 }) => {
   if (isBuilder) {
     return (
@@ -279,6 +287,7 @@ const Checkbox: React.FC<OptionsProps> = ({
                 : value.filter((v: string) => v !== option.value);
               handleChange({ answer: newValue });
             }}
+            disabled={readOnly}
           />
           <label
             className="form-check-label"
@@ -301,6 +310,7 @@ const Dropdown: React.FC<OptionsProps> = ({
   handleChange,
   value,
   required,
+  readOnly
 }) => {
   if (isBuilder) {
     return (
@@ -366,7 +376,7 @@ const Dropdown: React.FC<OptionsProps> = ({
     <div className="mb-3">
       <select
         className="form-select"
-        disabled={isBuilder}
+        disabled={isBuilder || readOnly}
         required={required}
         value={value || ""}
         onChange={(e) => handleChange({ answer: e.target.value })}>
@@ -386,11 +396,12 @@ const DateInput: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <input
       className="form-control"
-      disabled={isBuilder}
+      disabled={isBuilder || readOnly}
       required={required}
       type="date"
       value={value || ""}
@@ -404,11 +415,12 @@ const TimeInput: React.FC<BaseProps> = ({
   isBuilder,
   value,
   required,
+  readOnly
 }) => (
   <div className="mb-3">
     <input
       className="form-control"
-      disabled={isBuilder}
+      disabled={isBuilder || readOnly}
       required={required}
       type="time"
       value={value || ""}
@@ -429,6 +441,7 @@ const Range: React.FC<RangeProps> = ({
   required,
   options,
   onOptionChange,
+  readOnly
 }) => {
   if (isBuilder) {
     return (
@@ -471,7 +484,7 @@ const Range: React.FC<RangeProps> = ({
       <div className="d-flex flex-column align-items-center">
         <input
           className="w-100 p-0 me-2"
-          disabled={isBuilder}
+          disabled={isBuilder || readOnly}
           required={required}
           type="range"
           min="0"

@@ -42,7 +42,7 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
 ) => {
   const [formsArray, setFormsArray] = useState<FormField[]>(initialFields);
   const [formInfo, setFormInfo] = useState<FormInfo>(initialInfo);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  // const bottomRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const allFormElements = [...defaultFormElements, ...customElements];
@@ -227,11 +227,9 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
   };
 
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [formsArray]);
-
-
+  // useEffect(() => {
+  //   bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  // }, [formsArray]);
 
   return (
     <main className="container-fluid vh-100 p-3">
@@ -346,7 +344,7 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
                   );
                 }
               })}
-              <div ref={bottomRef} />
+              {/* <div ref={bottomRef} /> */}
             </div>
           </div>
         </form>
