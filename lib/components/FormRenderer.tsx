@@ -1,20 +1,30 @@
 import React, { useState } from "react";
 import { getComponentByType } from "./utils";
-import { FormRendererProps, Answers } from "./types";
+import { Answers, FormRendererProps, FormSchemaItem } from "./types";
 
 const FormRenderer: React.FC<FormRendererProps> = ({
   formSchema,
   formOptions,
   submitBtnOptions,
   onSubmit,
-  errorMessage = "Please provide a valid schema"
+  errorMessage = "Please provide a valid schema",
 }) => {
-  const [answers, setAnswers] = useState<Answers>({});
-  const handleChange = (question: string, value: any, uuid: string) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [uuid]: { ...value, question },
-    }));
+  const [answers, setAnswers] = useState<Answers>(formSchema);
+
+  const handleChange = (value: any, uuid: string) => {
+    setAnswers((prevAnswers: any) =>
+      prevAnswers.map((item: any) =>
+        item.uuid === uuid ? { ...item, answer: value.answer } : item
+      )
+    );
+  };
+
+  const isDisabled = formOptions?.disabled ?? false;
+  const isReadOnly = formOptions?.readOnly ?? false;
+
+  const props = {
+    readOnly: isReadOnly,
+    disabled: isDisabled,
   };
 
   const handleSubmit = (e: React.FormEvent): void => {
@@ -24,7 +34,7 @@ const FormRenderer: React.FC<FormRendererProps> = ({
   };
 
   return (
-    ((!formSchema || (formSchema).length === 0) && (
+    ((!formSchema || formSchema.length === 0) && (
       <p className="text-danger">{errorMessage}</p>
     )) || (
       <form onSubmit={handleSubmit} {...formOptions}>
@@ -45,27 +55,36 @@ const FormRenderer: React.FC<FormRendererProps> = ({
                     {item.required && <span className="text-danger">*</span>}
                   </label>
 
-                  <FiledComponent
-                    isBuilder={false}
-                    handleChange={(value: any) =>
-                      handleChange(item.question, value, item.uuid)
-                    }
-                    value={
-                      answers[item.uuid]?.answer ||
-                      answers[item.uuid]?.date ||
-                      answers[item.uuid]?.time
-                    }
-                    required={item.required}
-                    options={item.options}
-                  />
+                  <fieldset disabled={props?.disabled}>
+                    <FiledComponent
+                      isBuilder={false}
+                      handleChange={(value: string) => {
+                        handleChange(value, item.uuid);
+                      }}
+                      value={
+                        answers.find((ans: FormSchemaItem) => ans.uuid === item.uuid)
+                          ?.answer ||
+                        answers.find((ans: FormSchemaItem) => ans.uuid === item.uuid)
+                          ?.date ||
+                        answers.find((ans: FormSchemaItem) => ans.uuid === item.uuid)?.time
+                      }
+                      required={item.required}
+                      options={item.options}
+                      readOnly={props?.readOnly}
+                    />
+                  </fieldset>
                 </div>
               );
           }
         )}
         {formSchema &&
-          (formSchema).length !== 0 &&
+          formSchema.length !== 0 &&
           !(submitBtnOptions?.hide || false) && (
-            <button type="submit" {...submitBtnOptions?.props}>
+            <button
+              type="submit"
+              {...submitBtnOptions?.props}
+              disabled={props?.disabled || false}
+            >
               {submitBtnOptions?.label || "Submit"}
             </button>
           )}
