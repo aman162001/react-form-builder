@@ -108,7 +108,7 @@ The form builder comes with several built-in field types:
 ### Basic Form Builder
 
 ```jsx
-import { FormBuilder } from 'react-dynamic-form-builder';
+import { FormBuilder } from 'assist-form-builder';
 
 function MyFormBuilder() {
   const handleSubmit = (fields, info) => {
