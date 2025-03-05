@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/aman162001/react-form-builder/compare/v1.2.2...v1.2.3) (2025-03-05)
+
+
+### Bug Fixes
+
+* prevent default behavior on button clicks in FormBuilder component ([28abca7](https://github.com/aman162001/react-form-builder/commit/28abca7fe3724bfe1a5972d9784e2d092aaf3b70))
+
 ## [1.2.2](https://github.com/aman162001/react-form-builder/compare/v1.2.1...v1.2.2) (2025-02-26)
 
 
