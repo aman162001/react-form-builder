@@ -286,12 +286,18 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
                           </div>
                           <button
                             className="btn btn-outline-primary btn-sm me-2"
-                            onClick={() => handleMoveUp(index)}>
+                            onClick={(e) => {
+                              e.preventDefault()
+                              handleMoveUp(index)
+                            }}>
                             ↑
                           </button>
                           <button
                             className="btn btn-outline-primary btn-sm me-2"
-                            onClick={() => handleMoveDown(index)}>
+                            onClick={(e) => {
+                              e.preventDefault()
+                              handleMoveDown(index)
+                            }}>
                             ↓
                           </button>
                           <button
