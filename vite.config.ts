@@ -14,7 +14,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'MyLibrary', // Global variable name for UMD builds
+      name: 'Main', // Global variable name for UMD builds
       fileName: (format) => `main.${format}.js`, // Output file name
     },
     rollupOptions: {
