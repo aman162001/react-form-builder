@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getComponentByType } from "./utils";
-import { Answers, FormRendererProps, FormSchemaItem } from "./types";
+import { Answers, FormRendererProps, FormSchemaItem } from "../types";
 
 const FormRenderer: React.FC<FormRendererProps> = ({
   formSchema,
