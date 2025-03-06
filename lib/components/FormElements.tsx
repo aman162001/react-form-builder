@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import {BaseProps, OptionsProps} from "./types"
+import {BaseProps, OptionsProps} from "../types"
 
 const ShortAnswer: React.FC<BaseProps> = ({
   handleChange,
