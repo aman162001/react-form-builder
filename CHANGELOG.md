@@ -1,3 +1,11 @@
+## [1.2.4](https://github.com/aman162001/react-form-builder/compare/v1.2.3...v1.2.4) (2025-03-06)
+
+
+### Bug Fixes
+
+* component types ([26b663d](https://github.com/aman162001/react-form-builder/commit/26b663d32585bac49e867e6956cf4d6748b96a12))
+* global name ([31f16e5](https://github.com/aman162001/react-form-builder/commit/31f16e5fe1d0f2908e29c65e0ab44434bc88b981))
+
 ## [1.2.3](https://github.com/aman162001/react-form-builder/compare/v1.2.2...v1.2.3) (2025-03-05)
 
 
