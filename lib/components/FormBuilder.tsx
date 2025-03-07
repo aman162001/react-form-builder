@@ -103,11 +103,11 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
       prev.map((field) =>
         field.uuid === uuid
           ? {
-            ...field,
-            options: field.options.map((option, i) =>
-              i === index ? value : option
-            ),
-          }
+              ...field,
+              options: field.options.map((option, i) =>
+                i === index ? value : option
+              ).concat(Array(Math.max(0, index - field.options.length)).fill(undefined), value),
+            }
           : field
       )
     );
