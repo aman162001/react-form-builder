@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/aman162001/react-form-builder/compare/v1.2.4...v1.3.0) (2025-03-10)
+
+
+### Features
+
+* taking minimum, maximum and steps in formbuilder ([06a33dd](https://github.com/aman162001/react-form-builder/commit/06a33ddbe309dd3aa22c1d793a7933c310923645))
+
 ## [1.2.4](https://github.com/aman162001/react-form-builder/compare/v1.2.3...v1.2.4) (2025-03-06)
 
 
