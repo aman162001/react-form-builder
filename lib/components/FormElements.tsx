@@ -447,32 +447,51 @@ const Range: React.FC<RangeProps> = ({
     return (
       <div className="mb-3">
         <div className="d-flex align-items-center gap-2">
+        <input
+            className="form-control mb-2"
+            required
+            type="number"
+            placeholder="Minimum value"
+            value={options?.[0] || ""}
+            // min="0"
+            onChange={(e) => onOptionChange?.(0, e.target.value)}
+          />
           <input
             className="form-control mb-2"
             required
             type="number"
+            min={options?.[0] || "0"}
             placeholder="Maximum value"
-            value={options?.[0] || ""}
-            onChange={(e) => onOptionChange?.(0, e.target.value)}
+            value={options?.[1] || ""}
+            onChange={(e) => onOptionChange?.(1, e.target.value)}
+          />
+          <input
+            className="form-control mb-2"
+            required
+            type="number"
+            min={1}
+            placeholder="Steps"
+            value={options?.[2] || ""}
+            onChange={(e) => onOptionChange?.(2, e.target.value)}
           />
         </div>
       </div>
     );
   }
 
-  const maxValue = parseInt(options?.[0] || "100");
-  const getSteps = (max: number): number => {
-    if (max <= 10) return 1;
-    if (max <= 20) return 2;
-    if (max <= 50) return 5;
-    if (max <= 100) return 10;
-    return Math.ceil(max / 10);
+  const getSteps = (max: number, min: number): number => {
+    if ((max - min) <= 10) return 1;
+    if ((max - min) <= 20) return 2;
+    if ((max - min) <= 50) return 5;
+    if ((max - min) <= 100) return 10;
+    return Math.ceil((max - min) / 10);
   };
-
-  const stepSize = getSteps(maxValue);
+  const minValue = parseInt(options?.[0] || "0");
+  const maxValue = parseInt(options?.[1] || "100");
+  const stepSize = options?.[2] ? parseInt(options?.[2]) : getSteps(maxValue, minValue);
   const labels: number[] = [];
 
-  for (let i = 0; i <= maxValue; i += stepSize) {
+  for (let i = minValue; i <= maxValue; i += stepSize) {
     labels.push(i);
   }
   if (labels[labels.length - 1] !== maxValue) {
@@ -481,31 +500,42 @@ const Range: React.FC<RangeProps> = ({
 
   return (
     <div className="mb-3">
-      <div className="d-flex flex-column align-items-center">
-        <input
-          className="w-100 p-0 me-2"
-          disabled={isBuilder || readOnly}
-          required={required}
-          type="range"
-          min="0"
-          max={maxValue}
-          style={{ cursor: "pointer" }}
-          step={stepSize}
-          value={value || "0"}
-          onChange={(e) => handleChange({ answer: e.target.value })}
-        />
-        <ul className="d-flex justify-content-between w-100 px-1 m-0">
-          {labels.map((num) => (
-            <li
+      <div className="position-relative w-100">
+      <input
+        className="w-100"
+        disabled={isBuilder || readOnly}
+        required={required}
+        type="range"
+        min={minValue}
+        max={maxValue}
+        step={stepSize}
+        value={value || "0"}
+        style={{ cursor: "pointer", position: "relative", zIndex: 1 }}
+        onChange={(e) => handleChange({ answer: e.target.value })}
+      />
+
+      <div className="position-absolute w-100 d-flex" style={{ top: "24px", left: 0 }}>
+        {labels.map((num, index) => {
+          const position = ((num - minValue) / (maxValue - minValue)) * 100;
+          return (
+            <span
               key={num}
-              style={{ cursor: "pointer", listStyle: "none" }}
+              style={{
+                position: "absolute",
+                left: `calc(${position}%)`, // Center align text
+                whiteSpace: "nowrap",
+                transform: "translateX(-50%)",
+                fontSize: "12px",
+                cursor: "pointer",
+              }}
               onClick={() => handleChange({ answer: num })}
-              className="p-0 m-0">
+            >
               {num}
-            </li>
-          ))}
-        </ul>
+            </span>
+          );
+        })}
       </div>
+    </div>
     </div>
   );
 };
