@@ -99,14 +99,18 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
   };
 
   const handleOptionChange = (uuid: string, index: number, value: any) => {
+    console.log("Formsarray : ", formsArray);
     setFormsArray((prev) =>
       prev.map((field) =>
         field.uuid === uuid
           ? {
               ...field,
-              options: field.options.map((option, i) =>
-                i === index ? value : option
-              ).concat(Array(Math.max(0, index - field.options.length)).fill(undefined), value),
+              options: [
+                ...field.options.slice(0, index),
+                ...Array(Math.max(0, index - field.options.length)).fill(undefined),
+                value, 
+                ...field.options.slice(index + 1),
+              ],
             }
           : field
       )
