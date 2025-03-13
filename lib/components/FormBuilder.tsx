@@ -99,7 +99,6 @@ const FormBuilder = forwardRef<FormBuilderRef, FormBuilderProps>((
   };
 
   const handleOptionChange = (uuid: string, index: number, value: any) => {
-    console.log("Formsarray : ", formsArray);
     setFormsArray((prev) =>
       prev.map((field) =>
         field.uuid === uuid
